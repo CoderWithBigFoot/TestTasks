@@ -70,29 +70,31 @@ namespace Airport_The_task_to_check_myself_
             }
             else { Console.WriteLine("all is ok"); }
             */
+            Airplane plane = new Airplane() { Name = "Second",Number = "Z123",RangeOfFlight = 123 };
+            /*List<Airplane> planes = new List<Airplane>() {
+                plane,
+                new Airplane { Name = "First",Seats = 123,Number = "Y5413"},
+                new Airplane { Name = "Second",Number = "Y4123"}
+            };*/
 
 
-            List<Airplane> planes = new List<Airplane>() {
-                /*new Airplane() {
-                    Seats = 12
-                },
-                new Airplane() {
-                    Seats = 12
-                },
-                new Airplane() {
-                    Seats = 11
-                }*/
+            Airport<Airplane> airport = new Airport<Airplane> {
+                /*plane,
+                new Airplane { Name = "First",Seats = 123,Number = "Y5413",RangeOfFlight = 3},
+                new Airplane { Name = "Second",Number = "Y4123",RangeOfFlight = 5.1}*/
             };
 
-
-
-            /*foreach (var current in GetStringsWithSubstring(test, "a")) {
-                Console.WriteLine(current);
-            }*/
-
-            char newChar = Char.Parse(Console.ReadLine()); // here is FormatException
-            Console.WriteLine(newChar);
-            
+            var result = airport.GetPlainsWithLetterInNumber(Char.Parse(Console.ReadLine()));
+            if (result.Count() == 0)
+            {
+                Console.WriteLine("There are zero ");
+            }
+            else {
+                foreach (var current in result) {
+                    Console.WriteLine(current.ToString());
+                    Console.WriteLine();
+                }
+            }
             Console.ReadKey();
         }
     }

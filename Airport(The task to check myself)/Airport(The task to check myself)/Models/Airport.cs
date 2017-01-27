@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,10 @@ using System.Threading.Tasks;
 using Airport_The_task_to_check_myself_.Interfaces;
 namespace Airport_The_task_to_check_myself_.Models
 {
-    public class Airport<T> : /*ICollection<T>, IEnumerable<T>,*/ IAirport<T> where T : Airplane {
+    public class Airport<T> : ICollection<T>, IAirport<T> where T : Airplane {
 
         private List<T> airplanes { set; get; } = new List<T>();
-        
+
         public T this[int index] {
             set {
                 this.airplanes[index] = value;
@@ -57,7 +58,54 @@ namespace Airport_The_task_to_check_myself_.Models
                 return null; 
             }
         }
+
+
+        public int Count
+        {
+            get
+            {
+                return this.airplanes.Count;
+            }
+        }
+        public bool IsReadOnly
+        {
+            get
+            {
+                return false;
+            }
+        }
+        public void Add(T item)
+        {
+            this.airplanes.Add(item);
+        }
+        public void Clear()
+        {
+            this.airplanes.Clear();
+        }
+        public bool Contains(T item)
+        {
+            return this.airplanes.Contains(item);
+        }
+        public void CopyTo(T[] array, int arrayIndex)
+        {
+            this.airplanes.CopyTo(array, arrayIndex);
+        }
+        public bool Remove(T item)
+        {
+            return this.airplanes.Remove(item);
+        }
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this.airplanes.GetEnumerator();
+        }
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
     }
+
+
+
     
 
 

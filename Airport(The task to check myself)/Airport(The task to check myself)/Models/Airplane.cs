@@ -59,5 +59,9 @@ namespace Airport_The_task_to_check_myself_.Models
             }
         }
 
+        public override string ToString()
+        {
+            return $"Name: {Name},\nNumber: {Number},\nSeats: {Seats},\nRangeOfFlight: {RangeOfFlight}\n-------------------\n";
+        }
     }
 }
