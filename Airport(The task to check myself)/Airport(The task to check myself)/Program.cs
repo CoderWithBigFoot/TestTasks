@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using Airport_The_task_to_check_myself_.Models;
 namespace Airport_The_task_to_check_myself_
 {
-   
+
     /*public class CustomCollection<T> :ICollection<T>, IEnumerable<T> where T: class  {
         private List<T> nestedCollection;
         [Range(1,100,ErrorMessage = "There must be from 1 to 100")]
@@ -28,58 +28,81 @@ namespace Airport_The_task_to_check_myself_
     }
     */
 
+    
+
    public class Program
     {
+        public static IEnumerable<string> GetStringsWithSubstring(IEnumerable<string> strings, string substring) {
+            if (strings == null) { yield break; }
+
+            foreach (var current in strings) {
+                if (current.Contains(substring)) { yield return current; }
+            }
+        } 
        public static void Main(string[] args)
         {
 
-            /*Airplane airplane = new Airplane() {
-                Name = "s",
-                Number = "TR-123",
-                Seats = -12,
-                RangeOfFlight = 123.123
-            };
+            /* Airplane plane = new Airplane() {
+                 Name = "First",
+                 Number = "GK - 101",
+                 RangeOfFlight = 123,
+                 Seats =11
+             };
 
-            var results = new List<ValidationResult>();
-            var context = new ValidationContext(airplane);
+             var results = new List<ValidationResult>();
+             var context = new ValidationContext(plane);
 
-            Validator.TryValidateObject(airplane, context, results, true);
-            //Validator.TryValidateObject(airplane, context, results, true);
+             if (!Validator.TryValidateObject(plane, context, results, true))
+             {
+                 Console.WriteLine("Incorrect validation");
+             }
+             else {
+                 Console.WriteLine(plane.Seats + " " + plane.PlaneType);
+             }*/
 
-
-
-
-            Console.WriteLine();
-
-            foreach (var error in results) {
-                Console.WriteLine(error.ErrorMessage);
-            }
-            */
-
-            /*string str = Console.ReadLine();
-            if (str == "") { Console.WriteLine(" it is empty string "); }
-            */
-
-            Airplane plane = new Airplane() {
-                Name = "First",
-                Number = "GK - 101",
-                RangeOfFlight = 123,
-                Seats = -9
-            };
-
-            var results = new List<ValidationResult>();
-            var context = new ValidationContext(plane);
-
-            Validator.TryValidateObject(plane, context, results, true);
-
-            foreach (var error in results)
+            /*foreach (var error in results)
             {
                 Console.WriteLine(error.ErrorMessage);
-            }
+            }*/
             ///show results only when validation is passed
-            Console.WriteLine(plane.Seats + " " + plane.PlaneType);
+
+            /*ITest test = new TestClass() { Name = "n" };
+
+            var results = new List<ValidationResult>();
+            var context = new ValidationContext(test);
+            if (!Validator.TryValidateObject(test, context, results, true))
+            {
+                Console.WriteLine("Some errors");
+            }
+            else { Console.WriteLine("all is ok"); }
+            */
 
 
+            List<Airplane> planes = new List<Airplane>() {
+                /*new Airplane() {
+                    Seats = 12
+                },
+                new Airplane() {
+                    Seats = 12
+                },
+                new Airplane() {
+                    Seats = 11
+                }*/
+            };
+
+            List<string> test = new List<string>() { "abc,abc,abcd,dfghasd" };
+            if (GetStringsWithSubstring(null, "a") == null)
+            {
+                Console.WriteLine("is null");
+            }
+            
+            /*foreach (var current in GetStringsWithSubstring(test, "a")) {
+                Console.WriteLine(current);
+            }*/
+
+
+            
+            
             Console.ReadKey();
         }
     }

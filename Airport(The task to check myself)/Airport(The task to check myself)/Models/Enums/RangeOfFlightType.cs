@@ -1,0 +1,1 @@
+﻿public enum RangeOfFlightType { min,max,average};

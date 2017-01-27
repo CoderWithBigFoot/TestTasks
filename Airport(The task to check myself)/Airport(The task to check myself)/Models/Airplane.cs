@@ -17,7 +17,6 @@ namespace Airport_The_task_to_check_myself_.Models
         protected delegate void SeatsChangedHandler(object sender, SeatsChangingArgs e);
         protected event SeatsChangedHandler SeatsChanged;
 
-
         public Airplane() {
             SeatsChanged += (sender, e) => {
                 if (e.Seats<10) {
@@ -26,11 +25,9 @@ namespace Airport_The_task_to_check_myself_.Models
                 if (this.seats >= 10) {
                     this.PlaneType = PlaneTypes.Passenger;
                 }
-            }; 
-            
+            };   
         }
         
-
         [Required]
         [MinLength(1,ErrorMessage ="You didn't enter the name.")]
         public string Name { set; get; }
@@ -56,9 +53,6 @@ namespace Airport_The_task_to_check_myself_.Models
         public double RangeOfFlight { set; get; }
 
         public PlaneTypes PlaneType { protected set; get; }
-
-
-
         protected virtual void OnSeatsChanged(SeatsChangingArgs e) {
             if (SeatsChanged != null) {
                 SeatsChanged(this, e);
