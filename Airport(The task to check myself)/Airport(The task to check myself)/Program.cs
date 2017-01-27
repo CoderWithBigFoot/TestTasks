@@ -32,13 +32,7 @@ namespace Airport_The_task_to_check_myself_
 
    public class Program
     {
-        public static IEnumerable<string> GetStringsWithSubstring(IEnumerable<string> strings, string substring) {
-            if (strings == null) { yield break; }
-
-            foreach (var current in strings) {
-                if (current.Contains(substring)) { yield return current; }
-            }
-        } 
+        
        public static void Main(string[] args)
         {
 
@@ -90,18 +84,14 @@ namespace Airport_The_task_to_check_myself_
                 }*/
             };
 
-            List<string> test = new List<string>() { "abc,abc,abcd,dfghasd" };
-            if (GetStringsWithSubstring(null, "a") == null)
-            {
-                Console.WriteLine("is null");
-            }
-            
+
+
             /*foreach (var current in GetStringsWithSubstring(test, "a")) {
                 Console.WriteLine(current);
             }*/
 
-
-            
+            char newChar = Char.Parse(Console.ReadLine()); // here is FormatException
+            Console.WriteLine(newChar);
             
             Console.ReadKey();
         }
