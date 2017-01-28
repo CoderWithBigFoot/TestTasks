@@ -102,9 +102,10 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
 
             }
         public char? GetLetterFromUser() {
-            Console.WriteLine("Enter the searching letter (searching in number): ");
+            string yesOrNo = null;
             while (true)
             {
+                Console.WriteLine("Enter the searching letter (searching in number): ");
                 string input = Console.ReadLine();
                 if (input.Length > 1 || input == "")
                 {
@@ -112,10 +113,10 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
 
                     while (true)
                     {
-                        input = Console.ReadLine();
+                        yesOrNo = Console.ReadLine();
 
-                        if (input == "Y") { break; }
-                        if (input == "N") { return null; }
+                        if (yesOrNo == "Y") { break; }
+                        if (yesOrNo == "N") { return null; }
                         else { continue; }
                     }
                 }
