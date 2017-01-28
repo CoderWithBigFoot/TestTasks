@@ -20,13 +20,15 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
             Airplane plane;
             List<ValidationResult> validationResults;
 
+            Console.WriteLine("\n    Enter the plane information. The input format: Name , Number , Seats , Range of flight\n");
+
             inputString = Console.ReadLine();
             if (inputString == "") { return null; }
 
                      
             //name,number,seats,rangeofflight
 
-            foreach (var current in inputString.Split(new char[] {',',' '}))
+            foreach (var current in inputString.Split(new char[] {','})) // may be add ' '
             {
                 trimmedValue = current.Trim();
                 if (trimmedValue == "") { continue; }
@@ -97,7 +99,6 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
                 }
 
             }
-
         public char? GetLetterFromUser() {
 
             while (true)
