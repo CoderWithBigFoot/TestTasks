@@ -128,11 +128,6 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
 
 
         }
-        
-
-
-
         }
-
     }
 

@@ -58,6 +58,7 @@ namespace Airport_The_task_to_check_myself_
              airport.ShowRangeOfFlight(RangeOfFlightType.min);
              airport.ShowRangeOfFlight(RangeOfFlightType.max);
 
+            Console.ReadKey();
              letterToCheck = consoleInteraction.GetLetterFromUser();
 
              if (letterToCheck != null) {
@@ -65,8 +66,8 @@ namespace Airport_The_task_to_check_myself_
              }
 
 
-             Console.WriteLine("\n\n -----------\n\n");
-
+             Console.WriteLine("\n\n -----------\n");
+            Console.ReadKey();
              airport.ShowSeparatedPlanesByType();
              
             #endregion
