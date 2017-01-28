@@ -35,6 +35,7 @@ namespace Airport_The_task_to_check_myself_.Models
             foreach (var plane in this.airplanes.OrderBy(x => x.Number)) {
                 Console.WriteLine(plane.ToString());
             }
+            Console.WriteLine("\n-----------------------\n");
         }
         public void GetPlainsWithMaxSeats() {
             if (isEmpty()) { return; }
@@ -43,7 +44,8 @@ namespace Airport_The_task_to_check_myself_.Models
             Console.WriteLine("    Planes with max seats");
             foreach (var current in this.airplanes.Where(x => x.Seats == max)) {
                 Console.WriteLine(current.ToString());
-            }  
+            }
+            Console.WriteLine("\n-----------------------\n");
         }
 
         public void GetRangeOfFlight(RangeOfFlightType type) {
@@ -57,32 +59,33 @@ namespace Airport_The_task_to_check_myself_.Models
                 default: Console.WriteLine("Unknown type");return;
                 }
         }
-        public void GetPlainsWithLetterInNumber(char letter) {
-            if (isEmpty()) { return; }
+        public void GetPlainsWithLetterInNumber(char? letter) {
+            if (isEmpty() || letter == null) { return; }
 
-            Console.WriteLine("    There are planes with ("+letter+") letter\n");
+            Console.WriteLine("    There are planes with ("+letter+") letter in number\n");
             var result = this.airplanes.Where(x => x.Number.ToLower().Contains(letter.ToString().ToLower()));
             if (result.Count() == 0) { Console.WriteLine("There are no such planes."); return; }
 
-            foreach (var current in this.airplanes.Where(x => x.Number.ToLower().Contains(letter.ToString().ToLower()))) {
-                Console.WriteLine();
+            foreach (var current in result) {
+                Console.WriteLine(current.ToString());
             }
-            
-           
+            Console.WriteLine("\n-----------------------\n");
+
         }
 
         public void SeparateByType() {
 
             if (isEmpty()) { return; }
 
-            Console.WriteLine("    Planes that separated by type \n");
+            Console.WriteLine("    Planes that separated by type: \n");
             foreach (var currentGroup in airplanes.GroupBy(x => x.PlaneType)) {
                 Console.WriteLine($" Type: {currentGroup.Key.ToString()}\n");
                 foreach (var element in currentGroup) {
                     Console.WriteLine(element.ToString());
                 }
-                Console.WriteLine();
-            }        
+                Console.WriteLine("\n");
+            }
+            Console.WriteLine("\n-----------------------\n");
         }
 
         public int Count
@@ -126,6 +129,21 @@ namespace Airport_The_task_to_check_myself_.Models
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this.GetEnumerator();
+        }
+
+        public override string ToString()
+        {
+            string result = null;
+            if (this.Count == 0) { return "There are no planes in airport."; }
+           
+            else {
+                result += "\n      All planes is airport\n";
+                foreach (var currentPlane in this.airplanes) {
+                    result += currentPlane.ToString();
+                    result += "\n";
+                }
+            }
+            return result;
         }
     }
 

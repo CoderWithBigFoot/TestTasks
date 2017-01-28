@@ -11,6 +11,13 @@ namespace Airport_The_task_to_check_myself_.Models
         public int Seats { set; get; }
     }
 
+
+    /*
+     The difference between planes that i selected is a Seats (their count). After
+     seats setting the event SeatsChanged rises and type of plane changes. Type of plane is a field 
+     of PlaneTypes type and calls TypeOfPlane. As i said it depends on Seats. 
+     If seats are less than 10, TypeOfPlane is a cargo. Otherwise, it is a passenger.
+         */
    public class Airplane
     {
         protected int seats;
@@ -36,7 +43,6 @@ namespace Airport_The_task_to_check_myself_.Models
         [MinLength(1, ErrorMessage = "You didn't enter the Number")]
         public string Number { set; get; }
 
-        
         [Required]
         [Range(1, 1000, ErrorMessage = "Count of seats must be from 1 to 1000")]
         public int Seats {

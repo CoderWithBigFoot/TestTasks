@@ -20,7 +20,7 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
             Airplane plane;
             List<ValidationResult> validationResults;
 
-            Console.WriteLine("\n    Enter the plane information. The input format: Name , Number , Seats , Range of flight\n");
+            Console.WriteLine("\nEnter the plane information.\nThe input format: Name , Number , Seats , Range of flight\n");
 
             inputString = Console.ReadLine();
             if (inputString == "") { return null; }
@@ -100,7 +100,7 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
 
             }
         public char? GetLetterFromUser() {
-
+            Console.WriteLine("Enter the searching letter (searching in number): ");
             while (true)
             {
                 string input = Console.ReadLine();

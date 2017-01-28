@@ -12,7 +12,7 @@ namespace Airport_The_task_to_check_myself_.Interfaces
         void GetPlainsSortedByNumber();
         void GetPlainsWithMaxSeats();
         void GetRangeOfFlight(RangeOfFlightType type);
-        void GetPlainsWithLetterInNumber(char letter);
+        void GetPlainsWithLetterInNumber(char? letter);
         void SeparateByType();
 
     }
