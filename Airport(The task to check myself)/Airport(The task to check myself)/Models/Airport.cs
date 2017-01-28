@@ -32,7 +32,7 @@ namespace Airport_The_task_to_check_myself_.Models
             return false;
         }
 
-        public void GetPlainsSortedByNumber() {
+        public void ShowPlainsSortedByNumber() {
             if (isEmpty()) { return; }
 
             Console.WriteLine("   Planes that sorted by Number\n");
@@ -41,7 +41,7 @@ namespace Airport_The_task_to_check_myself_.Models
             }
             Console.WriteLine("\n-----------------------\n");
         }
-        public void GetPlainsWithMaxSeats() {
+        public void ShowPlainsWithMaxSeats() {
             if (isEmpty()) { return; }
             int max = this.airplanes.Max(pl => pl.Seats);
 
@@ -52,7 +52,7 @@ namespace Airport_The_task_to_check_myself_.Models
             Console.WriteLine("\n-----------------------\n");
         }
 
-        public void GetRangeOfFlight(RangeOfFlightType type) {
+        public void ShowRangeOfFlight(RangeOfFlightType type) {
             if (isEmpty()) { return; }
             
                 switch (type)
@@ -63,7 +63,7 @@ namespace Airport_The_task_to_check_myself_.Models
                 default: Console.WriteLine("Unknown type");return;
                 }
         }
-        public void GetPlainsWithLetterInNumber(char? letter) {
+        public void ShowPlainsWithLetterInNumber(char? letter) {
             if (isEmpty() || letter == null) { return; }
 
             Console.WriteLine("    There are planes with ("+letter+") letter in number\n");
@@ -77,7 +77,7 @@ namespace Airport_The_task_to_check_myself_.Models
 
         }
 
-        public void SeparateByType() {
+        public void ShowSeparatedPlanesByType() {
 
             if (isEmpty()) { return; }
 

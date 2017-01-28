@@ -49,25 +49,25 @@ namespace Airport_The_task_to_check_myself_
              Console.WriteLine();
              Console.ReadKey();
 
-             airport.GetPlainsSortedByNumber();
+             airport.ShowPlainsSortedByNumber();
              Console.ReadKey();
-             airport.GetPlainsWithMaxSeats();
+             airport.ShowPlainsWithMaxSeats();
              Console.ReadKey();
 
-             airport.GetRangeOfFlight(RangeOfFlightType.average);
-             airport.GetRangeOfFlight(RangeOfFlightType.min);
-             airport.GetRangeOfFlight(RangeOfFlightType.max);
+             airport.ShowRangeOfFlight(RangeOfFlightType.average);
+             airport.ShowRangeOfFlight(RangeOfFlightType.min);
+             airport.ShowRangeOfFlight(RangeOfFlightType.max);
 
              letterToCheck = consoleInteraction.GetLetterFromUser();
 
              if (letterToCheck != null) {
-                 airport.GetPlainsWithLetterInNumber(letterToCheck);
+                 airport.ShowPlainsWithLetterInNumber(letterToCheck);
              }
 
 
              Console.WriteLine("\n\n -----------\n\n");
 
-             airport.SeparateByType();
+             airport.ShowSeparatedPlanesByType();
              
             #endregion
 
