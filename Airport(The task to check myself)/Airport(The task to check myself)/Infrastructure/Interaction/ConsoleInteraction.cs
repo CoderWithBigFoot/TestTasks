@@ -30,7 +30,7 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
                      
             //name,number,seats,rangeofflight
 
-            foreach (var current in inputString.Split(new char[] {','})) // may be add ' '
+            foreach (var current in inputString.Split(new char[] {','}))
             {
                 trimmedValue = current.Trim();
                 if (trimmedValue == "") { continue; }
