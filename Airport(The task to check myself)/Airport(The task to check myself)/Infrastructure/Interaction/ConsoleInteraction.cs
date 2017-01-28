@@ -18,15 +18,13 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
             string trimmedValue = null;
             bool isCorrect = false;
             Airplane plane;
-            List<ValidationResult> validationResults = new List<ValidationResult>();
+            List<ValidationResult> validationResults;
 
             inputString = Console.ReadLine();
             if (inputString == "") { return null; }
 
-            
-          
+                     
             //name,number,seats,rangeofflight
-
 
             foreach (var current in inputString.Split(new char[] {',',' '}))
             {
@@ -35,21 +33,42 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
                 result.Add(trimmedValue);        
             }
 
-            isCorrect = this.AirplaneValidation(result,out validationResults,out plane);
+            try
+            {
+                isCorrect = this.AirplaneValidation(result, out validationResults, out plane);
 
-            if (isCorrect) { return plane; }
-            else {
-                Console.WriteLine();
-                foreach (var currentError in validationResults) {
-                    Console.WriteLine(currentError.ErrorMessage);
+                if (isCorrect) { return plane; }
+                else
+                {
+                    Console.WriteLine();
+                    foreach (var currentError in validationResults)
+                    {
+                        Console.WriteLine(currentError.ErrorMessage);
+                    }
+                    return null;
                 }
             }
-
-            
+            catch (IncorrectParametersCountException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            catch (FormatException) {
+                Console.WriteLine("The seats and range of flight must be numerals." );
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
 
         }
-
-
         protected bool AirplaneValidation(List<string> parameters,out List<ValidationResult> validationErrors,out Airplane plane) {
             if (parameters.Count() != 4) { throw new IncorrectParametersCountException(); }
 
@@ -58,7 +77,7 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
                 {
                     Name = parameters[0].Trim(),
                     Number = parameters[1].Trim(),
-                    Seats = Int32.Parse(parameters[2].Trim()),
+                    Seats = Int32.Parse(parameters[2].Trim()),      //here is may be a FormatException
                     RangeOfFlight = Double.Parse(parameters[3].Trim())
                 };
 
@@ -78,9 +97,35 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
                 }
 
             }
-           
+
+        public char? GetLetterFromUser() {
+
+            while (true)
+            {
+                string input = Console.ReadLine();
+                if (input.Length > 1 || input == "")
+                {
+                    Console.WriteLine("Incorrect symbol. Do you want to try again?(Y/N).");
+
+                    while (true)
+                    {
+                        input = Console.ReadLine();
+
+                        if (input == "Y") { break; }
+                        if (input == "N") { return null; }
+                        else { continue; }
+                    }
+                }
+                if (input.Length == 1 && Char.IsLetter(input[0])) {
+                    return input[0];
+                }
+            }
+                           
+            
 
 
+        }
+        
 
 
 

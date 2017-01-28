@@ -9,6 +9,6 @@ namespace Airport_The_task_to_check_myself_.Interfaces
    public interface IInteraction
     {
         Airplane GetAirplaneFromUser();
-    
+        char? GetLetterFromUser();
     }
 }

@@ -9,10 +9,12 @@ namespace Airport_The_task_to_check_myself_.Interfaces
 {
     public interface IAirport<T> where T: Airplane{
 
-        IEnumerable<T> GetPlainsSortedByNumber();
-        IEnumerable<T> GetPlainsWithMaxSeats();
-        double? GetRangeOfFlight(RangeOfFlightType type);
-        IEnumerable<T> GetPlainsWithLetterInNumber(char letter);
+        void GetPlainsSortedByNumber();
+        void GetPlainsWithMaxSeats();
+        void GetRangeOfFlight(RangeOfFlightType type);
+        void GetPlainsWithLetterInNumber(char letter);
+        void SeparateByType();
+
     }
     
     
