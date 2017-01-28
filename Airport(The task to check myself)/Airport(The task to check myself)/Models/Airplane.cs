@@ -43,7 +43,7 @@ namespace Airport_The_task_to_check_myself_.Models
             set {
                 this.OnSeatsChanged(new SeatsChangingArgs { Seats = value });
                 this.seats = value;
-                Console.WriteLine("Here is initialization");
+                //Console.WriteLine("Here is initialization");
             }
             get { return this.seats; }
         }
@@ -53,15 +53,15 @@ namespace Airport_The_task_to_check_myself_.Models
         public double RangeOfFlight { set; get; }
 
         public PlaneTypes PlaneType { protected set; get; }
+
         protected virtual void OnSeatsChanged(SeatsChangingArgs e) {
             if (SeatsChanged != null) {
                 SeatsChanged(this, e);
             }
         }
-
         public override string ToString()
         {
-            return $"Name: {Name},\nNumber: {Number},\nSeats: {Seats},\nRangeOfFlight: {RangeOfFlight}\n-------------------\n";
+            return $"Name: {Name},\nNumber: {Number},\nSeats: {Seats},\nRangeOfFlight: {RangeOfFlight},\nType: {PlaneType.ToString()}\n-------------------\n";
         }
     }
 }

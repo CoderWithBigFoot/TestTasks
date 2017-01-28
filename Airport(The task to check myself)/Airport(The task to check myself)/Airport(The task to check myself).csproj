@@ -44,7 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\Exceptions\IncorrectParametersCountException.cs" />
+    <Compile Include="Infrastructure\Interaction\ConsoleInteraction.cs" />
     <Compile Include="Interfaces\IAirport.cs" />
+    <Compile Include="Interfaces\IInteraction.cs" />
     <Compile Include="Models\Airplane.cs" />
     <Compile Include="Models\Airport.cs" />
     <Compile Include="Models\Enums\PlaneTypes.cs" />
