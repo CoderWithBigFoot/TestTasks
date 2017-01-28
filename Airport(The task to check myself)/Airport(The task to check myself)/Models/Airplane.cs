@@ -17,6 +17,8 @@ namespace Airport_The_task_to_check_myself_.Models
      seats setting the event SeatsChanged rises and type of plane changes. Type of plane is a field 
      of PlaneTypes type and calls TypeOfPlane. As i said it depends on Seats. 
      If seats are less than 10, TypeOfPlane is a cargo. Otherwise, it is a passenger.
+
+        Some properties have validation attributes, that are needed to validate this properies via reflection.(as you can see, i used a Validator.TryValidateObject()) 
          */
    public class Airplane
     {

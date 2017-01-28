@@ -9,6 +9,8 @@ using Airport_The_task_to_check_myself_.Infrastructure.Exceptions;
 using System.ComponentModel.DataAnnotations;
 namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
 {
+
+    /*I created this class for incapsulate almost whole console interaction logic*/
    public class ConsoleInteraction: IInteraction
     {
         public Airplane GetAirplaneFromUser() {

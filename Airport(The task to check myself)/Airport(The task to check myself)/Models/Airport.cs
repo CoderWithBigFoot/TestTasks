@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 using Airport_The_task_to_check_myself_.Interfaces;
 namespace Airport_The_task_to_check_myself_.Models
 {
+    /*Airport is implemented like a collection, via implementing ICollection<T> interface
+     This collection is implemented just like a generic type where type is Airplane. 
+     It means that each type that is a child of Airplane type and Airplane type too can be used insted T parameter 
+         */
     public class Airport<T> : ICollection<T>, IAirport<T> where T : Airplane {
 
         private List<T> airplanes { set; get; } = new List<T>();
