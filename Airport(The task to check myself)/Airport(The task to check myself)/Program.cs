@@ -66,7 +66,6 @@ namespace Airport_The_task_to_check_myself_
              }
 
 
-            Console.WriteLine("\n\n -----------\n");
             Console.ReadKey();
             airport.ShowSeparatedPlanesByType();
              
