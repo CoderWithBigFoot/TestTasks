@@ -9,10 +9,10 @@ namespace Airport_The_task_to_check_myself_.Interfaces
 {
    public interface IInteraction
     {
-        Airplane GetAirplaneFromUser();
+        IAirplane GetAirplaneFromUser();
         char? GetLetterFromUser();
         void ShowPlanes(IEnumerable<IAirplane> collection);
         void ShowPlanes(IEnumerable<IGrouping<PlaneTypes, IAirplane>> collection);
-        void ShowRangeOfFlight(object rangeOfFlight);
+        void ShowRangesOfFlight(double? minRangeOfFlight, double? maxRangeOfFlight,double? averageRangeOfFlight);
     }
 }

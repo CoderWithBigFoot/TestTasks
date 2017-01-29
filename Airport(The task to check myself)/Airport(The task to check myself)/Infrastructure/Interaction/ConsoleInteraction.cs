@@ -13,13 +13,13 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
     /*I created this class for incapsulate almost whole console interaction logic*/
    public class ConsoleInteraction: IInteraction
     {
-        public Airplane GetAirplaneFromUser() {
+        public IAirplane GetAirplaneFromUser() {
 
             List<string> result = new List<string>() ;
             string inputString = null;
             string trimmedValue = null;
             bool isCorrect = false;
-            Airplane plane;
+            IAirplane plane;
             List<ValidationResult> validationResults;
 
             Console.WriteLine("\nEnter the plane information.\nThe input format: Name , Number , Seats , Range of flight\n");
@@ -73,7 +73,7 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
             }
 
         }
-        protected bool AirplaneValidation(List<string> parameters,out List<ValidationResult> validationErrors,out Airplane plane) {
+        protected bool AirplaneValidation(List<string> parameters,out List<ValidationResult> validationErrors,out IAirplane plane) {
             if (parameters.Count() != 4) { throw new IncorrectParametersCountException(); }
 
          
@@ -147,11 +147,16 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
                 }
             }
         }
-        public void ShowRangeOfFlight(object rangeOfFlight) {
-            if (rangeOfFlight == null) { Console.WriteLine("Incorrect range of flight"); }
-            if (rangeOfFlight is int? || rangeOfFlight is double?) {
-                Console.WriteLine(rangeOfFlight as double?);
-            }
+        /// <summary>
+        /// Shows the min, max and average ranges of flight
+        /// </summary>
+        /// <param name="minRangeOfFlight">The min range</param>
+        /// <param name="maxRangeOfFlight">The max range</param>
+        /// <param name="averageRangeOfFlight">The average range</param>
+        public void ShowRangesOfFlight(double? minRangeOfFlight, double? maxRangeOfFlight, double? averageRangeOfFlight) {
+            if (minRangeOfFlight == null || maxRangeOfFlight == null || averageRangeOfFlight == null) { Console.WriteLine("Incorrect ranges."); return; }
+
+            Console.WriteLine($"The min range of flight: {minRangeOfFlight}\nThe max range of flight: {maxRangeOfFlight}\nThe average range of flight: {averageRangeOfFlight}\n");
         }
        }
     }

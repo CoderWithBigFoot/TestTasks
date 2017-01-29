@@ -11,7 +11,7 @@ namespace Airport_The_task_to_check_myself_.Models
      This collection is implemented just like a generic type where type is Airplane. 
      It means that each type that is a child of Airplane type and Airplane type too can be used insted T parameter 
          */
-    public class Airport<T> : ICollection<T>, IAirport<T> where T : IAirplane {
+    public class Airport<T> : IAirport<T> where T : IAirplane {
 
         private List<T> airplanes { set; get; } = new List<T>();
 
@@ -50,7 +50,7 @@ namespace Airport_The_task_to_check_myself_.Models
         public IEnumerable<T> GetPlainsWithLetterInNumber(char? letter) {
             return (isEmpty() || letter == null) ? null : this.airplanes.Where(x => x.Number.ToLower().Contains(letter.ToString().ToLower()));
         }
-        public IEnumerable<IGrouping<PlaneTypes, T>> GetSeparatedPlanesBytype() {
+        public IEnumerable<IGrouping<PlaneTypes, T>> GetSeparatedPlanesByType() {
             return (isEmpty()) ? null : this.airplanes.GroupBy(gr=>gr.PlaneType);
         }
 

@@ -10,19 +10,24 @@ using Airport_The_task_to_check_myself_.Infractructure.Interaction;
 using Airport_The_task_to_check_myself_.Interfaces;
 namespace Airport_The_task_to_check_myself_
 {
-    
+    public class Human:IHuman { }
+    public interface IHuman { }
 
    public class Program
     {
         public static void Main(string[] args)
         {
+
+
+
             #region
-            /*Airport<Airplane> airport = new Airport<Airplane>();
+            Airport<Airplane> airport = new Airport<Airplane>();
             IInteraction consoleInteraction = new ConsoleInteraction();
-            Airplane plane;
+            IAirplane plane;
             bool isInProcess = true;
             string continueString = null;
             char? letterToCheck;
+            Airplane checkedAirplane = null;
 
             while (isInProcess)
             {
@@ -39,36 +44,45 @@ namespace Airport_The_task_to_check_myself_
                     }
                 }
                 if (plane != null) {
-                  airport.Add(plane);
+                    checkedAirplane = plane as Airplane;
+                    if (checkedAirplane == null) continue;
+
+                  airport.Add(checkedAirplane);
                     Console.WriteLine("\nEntered plane: \n" + plane.ToString());
                 }
             }
-
+            
             Console.WriteLine();
             Console.WriteLine(airport.ToString());
             Console.WriteLine();
             Console.ReadKey();
 
-            airport.ShowPlainsSortedByNumber();
-            Console.ReadKey();
-            airport.ShowPlainsWithMaxSeats();
+            Console.WriteLine("   Airplanes sorted by number:\n");
+            consoleInteraction.ShowPlanes(airport.GetPlainsSortedByNumber());
             Console.ReadKey();
 
-            airport.ShowRangeOfFlight(RangeOfFlightType.average);
-            airport.ShowRangeOfFlight(RangeOfFlightType.min);
-            airport.ShowRangeOfFlight(RangeOfFlightType.max);
+            Console.WriteLine("   Airplanes with max seats:\n");
+            consoleInteraction.ShowPlanes(airport.GetPlainsWithMaxSeats());
+            Console.ReadKey();
+
+            consoleInteraction.ShowRangesOfFlight(
+                airport.GetRangeOfFlight(RangeOfFlightType.min),
+                airport.GetRangeOfFlight(RangeOfFlightType.max),
+                airport.GetRangeOfFlight(RangeOfFlightType.average)
+                );
+           
 
            Console.ReadKey();
             letterToCheck = consoleInteraction.GetLetterFromUser();
 
             if (letterToCheck != null) {
-                airport.ShowPlainsWithLetterInNumber(letterToCheck);
+                consoleInteraction.ShowPlanes(airport.GetPlainsWithLetterInNumber(letterToCheck));
             }
 
 
            Console.ReadKey();
-           airport.ShowSeparatedPlanesByType();
-            */
+           consoleInteraction.ShowPlanes(airport.GetSeparatedPlanesByType());
+            
             #endregion
 
 
