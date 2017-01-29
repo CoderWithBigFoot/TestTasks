@@ -14,12 +14,6 @@ namespace Airport_The_task_to_check_myself_
 
    public class Program
     {
-        public static string CheckValues() {
-            int max = 123;
-            int min = 1;
-
-            return (max > 123 || min == 1) ? "Correct" : "Incorrect";
-        }
         public static void Main(string[] args)
         {
             #region

@@ -7,18 +7,18 @@ using Airport_The_task_to_check_myself_.Models;
 
 namespace Airport_The_task_to_check_myself_.Interfaces
 {
-    public interface IAirport<T> where T: Airplane{
+    public interface IAirport<T> where T: IAirplane{
         /* void ShowPlainsSortedByNumber();
          void ShowPlainsWithMaxSeats();
          void ShowRangeOfFlight(RangeOfFlightType type);
          void ShowPlainsWithLetterInNumber(char? letter);
          void ShowSeparatedPlanesByType();*/
 
-        IEnumerable<Airplane> GetPlainsSortedByNumber();
-        IEnumerable<Airplane> GetPlainsWithMaxSeats();
+        IEnumerable<T> GetPlainsSortedByNumber();
+        IEnumerable<T> GetPlainsWithMaxSeats();
         double? GetRangeOfFlight(RangeOfFlightType type);
-        IEnumerable<Airplane> GetPlainsWithLetterInNumber(char? letter);
-        IEnumerable<IGrouping<PlaneTypes, Airplane>> GetSeparatedPlanesBytype();
+        IEnumerable<T> GetPlainsWithLetterInNumber(char? letter);
+        IEnumerable<IGrouping<PlaneTypes, T>> GetSeparatedPlanesBytype();
        
     }
     

@@ -129,6 +129,30 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
 
 
         }
+        public void ShowPlanes(IEnumerable<IAirplane> collection) {
+            if (collection == null || collection.Count() == 0) { Console.WriteLine("There are no planes"); }
+
+            foreach (var current in collection) {
+                Console.WriteLine(current.ToString());
+                Console.WriteLine();
+            }
         }
+        public void ShowPlanes(IEnumerable<IGrouping<PlaneTypes, IAirplane>> collection) {
+            if (collection == null || collection.Count()==0) { Console.WriteLine("There are no planes"); }
+
+            foreach (var currentGroup in collection) {
+                Console.WriteLine($"   Type is: {currentGroup.Key.ToString()}");
+                foreach (var plane in currentGroup) {
+                    Console.WriteLine(plane.ToString());
+                }
+            }
+        }
+        public void ShowRangeOfFlight(object rangeOfFlight) {
+            if (rangeOfFlight == null) { Console.WriteLine("Incorrect range of flight"); }
+            if (rangeOfFlight is int? || rangeOfFlight is double?) {
+                Console.WriteLine(rangeOfFlight as double?);
+            }
+        }
+       }
     }
 
