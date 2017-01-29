@@ -11,5 +11,7 @@ namespace Airport_The_task_to_check_myself_.Interfaces
     {
         Airplane GetAirplaneFromUser();
         char? GetLetterFromUser();
+        void ShowCollection(IEnumerable<object> collection);
+
     }
 }

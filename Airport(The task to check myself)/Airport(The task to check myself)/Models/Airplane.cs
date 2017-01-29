@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-
+using Airport_The_task_to_check_myself_.Interfaces;
 namespace Airport_The_task_to_check_myself_.Models
 {
     public class SeatsChangingArgs: EventArgs {
@@ -20,7 +20,7 @@ namespace Airport_The_task_to_check_myself_.Models
 
         Some properties have validation attributes, that are needed to validate this properies via reflection.(as you can see, i used a Validator.TryValidateObject()) 
          */
-   public class Airplane
+   public class Airplane : IAirplane
     {
         protected int seats;
         protected delegate void SeatsChangedHandler(object sender, SeatsChangingArgs e);

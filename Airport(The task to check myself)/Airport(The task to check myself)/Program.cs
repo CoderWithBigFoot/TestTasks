@@ -14,63 +14,72 @@ namespace Airport_The_task_to_check_myself_
 
    public class Program
     {
+        public static string CheckValues() {
+            int max = 123;
+            int min = 1;
+
+            return (max > 123 || min == 1) ? "Correct" : "Incorrect";
+        }
         public static void Main(string[] args)
         {
             #region
-             Airport<Airplane> airport = new Airport<Airplane>();
-             IInteraction consoleInteraction = new ConsoleInteraction();
-             Airplane plane;
-             bool isInProcess = true;
-             string continueString = null;
-             char? letterToCheck;
+            /*Airport<Airplane> airport = new Airport<Airplane>();
+            IInteraction consoleInteraction = new ConsoleInteraction();
+            Airplane plane;
+            bool isInProcess = true;
+            string continueString = null;
+            char? letterToCheck;
 
-             while (isInProcess)
-             {
+            while (isInProcess)
+            {
 
-                 plane = consoleInteraction.GetAirplaneFromUser();
-                 if (plane == null)
-                 {
-                     Console.WriteLine("\nDo you want to enter another planes?(Y/N)");
-                     while (true) {
-                         continueString = Console.ReadLine();
-                         if (continueString == "Y") { break; }
-                         if (continueString == "N") { isInProcess = false;break; }
-                         else { continue; }
-                     }
-                 }
-                 if (plane != null) {
-                   airport.Add(plane);
-                     Console.WriteLine("\nEntered plane: \n" + plane.ToString());
-                 }
-             }
+                plane = consoleInteraction.GetAirplaneFromUser();
+                if (plane == null)
+                {
+                    Console.WriteLine("\nDo you want to enter another planes?(Y/N)");
+                    while (true) {
+                        continueString = Console.ReadLine();
+                        if (continueString == "Y") { break; }
+                        if (continueString == "N") { isInProcess = false;break; }
+                        else { continue; }
+                    }
+                }
+                if (plane != null) {
+                  airport.Add(plane);
+                    Console.WriteLine("\nEntered plane: \n" + plane.ToString());
+                }
+            }
 
-             Console.WriteLine();
-             Console.WriteLine(airport.ToString());
-             Console.WriteLine();
-             Console.ReadKey();
-
-             airport.ShowPlainsSortedByNumber();
-             Console.ReadKey();
-             airport.ShowPlainsWithMaxSeats();
-             Console.ReadKey();
-
-             airport.ShowRangeOfFlight(RangeOfFlightType.average);
-             airport.ShowRangeOfFlight(RangeOfFlightType.min);
-             airport.ShowRangeOfFlight(RangeOfFlightType.max);
-
+            Console.WriteLine();
+            Console.WriteLine(airport.ToString());
+            Console.WriteLine();
             Console.ReadKey();
-             letterToCheck = consoleInteraction.GetLetterFromUser();
 
-             if (letterToCheck != null) {
-                 airport.ShowPlainsWithLetterInNumber(letterToCheck);
-             }
-
-
+            airport.ShowPlainsSortedByNumber();
             Console.ReadKey();
-            airport.ShowSeparatedPlanesByType();
-             
+            airport.ShowPlainsWithMaxSeats();
+            Console.ReadKey();
+
+            airport.ShowRangeOfFlight(RangeOfFlightType.average);
+            airport.ShowRangeOfFlight(RangeOfFlightType.min);
+            airport.ShowRangeOfFlight(RangeOfFlightType.max);
+
+           Console.ReadKey();
+            letterToCheck = consoleInteraction.GetLetterFromUser();
+
+            if (letterToCheck != null) {
+                airport.ShowPlainsWithLetterInNumber(letterToCheck);
+            }
+
+
+           Console.ReadKey();
+           airport.ShowSeparatedPlanesByType();
+            */
             #endregion
 
+
+
+            
             
 
             Console.ReadLine();

@@ -26,82 +26,103 @@ namespace Airport_The_task_to_check_myself_.Models
 
         private bool isEmpty() {
             if (this.Count == 0) {
-                Console.WriteLine("There are no planes.");
                 return true;
             }
             return false;
         }
 
-        public void ShowPlainsSortedByNumber()
-        {
-            if (isEmpty()) { return; }
+        /*  public void ShowPlainsSortedByNumber()
+          {
+              if (isEmpty()) { return; }
 
-            Console.WriteLine("   Planes that sorted by Number\n");
-            foreach (var plane in this.airplanes.OrderBy(x => x.Number))
-            {
-                Console.WriteLine(plane.ToString());
-            }
-            Console.WriteLine("\n-----------------------");
+              Console.WriteLine("   Planes that sorted by Number\n");
+              foreach (var plane in this.airplanes.OrderBy(x => x.Number))
+              {
+                  Console.WriteLine(plane.ToString());
+              }
+              Console.WriteLine("\n-----------------------");
+          }
+          public void ShowPlainsWithMaxSeats()
+          {
+              if (isEmpty()) { return; }
+              int max = this.airplanes.Max(pl => pl.Seats);
+
+              Console.WriteLine("    Planes with max seats\n");
+              foreach (var current in this.airplanes.Where(x => x.Seats == max))
+              {
+                  Console.WriteLine(current.ToString());
+              }
+              Console.WriteLine("\n-----------------------");
+          }
+
+          public void ShowRangeOfFlight(RangeOfFlightType type)
+          {
+              if (isEmpty()) { return; }
+
+              switch (type)
+              {
+                  case RangeOfFlightType.min: Console.WriteLine("The min range of flight: " + this.airplanes.Min(x => x.RangeOfFlight)); return;
+                  case RangeOfFlightType.max: Console.WriteLine("the max range of flight: " + this.airplanes.Max(x => x.RangeOfFlight)); return;
+                  case RangeOfFlightType.average: Console.WriteLine("The average range of flight: " + this.airplanes.Average(x => x.RangeOfFlight)); return;
+                  default: Console.WriteLine("Unknown type"); return;
+              }
+          }
+          public void ShowPlainsWithLetterInNumber(char? letter)
+          {
+              if (isEmpty() || letter == null) { return; }
+
+              Console.WriteLine("    There are planes with (" + letter + ") letter in number\n");
+              var result = this.airplanes.Where(x => x.Number.ToLower().Contains(letter.ToString().ToLower()));
+              if (result.Count() == 0) { Console.WriteLine("There are no such planes."); return; }
+
+              foreach (var current in result)
+              {
+                  Console.WriteLine(current.ToString());
+              }
+              Console.WriteLine("\n-----------------------");
+
+          }
+
+          public void ShowSeparatedPlanesByType()
+          {
+
+              if (isEmpty()) { return; }
+
+              Console.WriteLine("    Planes that separated by type: \n\n");
+              foreach (var currentGroup in airplanes.GroupBy(x => x.PlaneType))
+              {
+                  Console.WriteLine($" Type: {currentGroup.Key.ToString()}\n");
+                  foreach (var element in currentGroup)
+                  {
+                      Console.WriteLine(element.ToString());
+                  }
+                  Console.WriteLine("\n");
+              }
+              Console.WriteLine("\n-----------------------");
+          }*/
+
+        public IEnumerable<Airplane> GetPlainsSortedByNumber() {
+            return isEmpty() ?  null : this.airplanes.OrderBy(numb => numb.Number);
         }
-        public void ShowPlainsWithMaxSeats()
-        {
-            if (isEmpty()) { return; }
-            int max = this.airplanes.Max(pl => pl.Seats);
-
-            Console.WriteLine("    Planes with max seats\n");
-            foreach (var current in this.airplanes.Where(x => x.Seats == max))
-            {
-                Console.WriteLine(current.ToString());
-            }
-            Console.WriteLine("\n-----------------------");
+        public IEnumerable<Airplane> GetPlainsWithMaxSeats() {
+            return isEmpty() ? null : this.airplanes.Where(pl => pl.Seats == this.airplanes.Max(x => x.Seats));
         }
-
-        public void ShowRangeOfFlight(RangeOfFlightType type)
-        {
-            if (isEmpty()) { return; }
-
+        public double? GetRangeOfFlight(RangeOfFlightType type) {
+            if (isEmpty()) { return null; }
             switch (type)
             {
-                case RangeOfFlightType.min: Console.WriteLine("The min range of flight: " + this.airplanes.Min(x => x.RangeOfFlight)); return;
-                case RangeOfFlightType.max: Console.WriteLine("the max range of flight: " + this.airplanes.Max(x => x.RangeOfFlight)); return;
-                case RangeOfFlightType.average: Console.WriteLine("The average range of flight: " + this.airplanes.Average(x => x.RangeOfFlight)); return;
-                default: Console.WriteLine("Unknown type"); return;
+                case RangeOfFlightType.min:return this.airplanes.Min(x => x.RangeOfFlight);
+                case RangeOfFlightType.max:return this.airplanes.Max(x => x.RangeOfFlight);
+                case RangeOfFlightType.average:return this.airplanes.Average(x => x.RangeOfFlight);
+                default: return null;
             }
         }
-        public void ShowPlainsWithLetterInNumber(char? letter)
-        {
-            if (isEmpty() || letter == null) { return; }
-
-            Console.WriteLine("    There are planes with (" + letter + ") letter in number\n");
-            var result = this.airplanes.Where(x => x.Number.ToLower().Contains(letter.ToString().ToLower()));
-            if (result.Count() == 0) { Console.WriteLine("There are no such planes."); return; }
-
-            foreach (var current in result)
-            {
-                Console.WriteLine(current.ToString());
-            }
-            Console.WriteLine("\n-----------------------");
-
+        public IEnumerable<Airplane> GetPlainsWithLetterInNumber(char? letter) {
+            return (isEmpty() || letter == null) ? null : this.airplanes.Where(x => x.Number.ToLower().Contains(letter.ToString().ToLower()));
         }
-
-        public void ShowSeparatedPlanesByType()
-        {
-
-            if (isEmpty()) { return; }
-
-            Console.WriteLine("    Planes that separated by type: \n\n");
-            foreach (var currentGroup in airplanes.GroupBy(x => x.PlaneType))
-            {
-                Console.WriteLine($" Type: {currentGroup.Key.ToString()}\n");
-                foreach (var element in currentGroup)
-                {
-                    Console.WriteLine(element.ToString());
-                }
-                Console.WriteLine("\n");
-            }
-            Console.WriteLine("\n-----------------------");
+        public IEnumerable<IGrouping<PlaneTypes, Airplane>> GetSeparatedPlanesBytype() {
+            return (isEmpty()) ? null : this.airplanes.GroupBy(gr=>gr.PlaneType);
         }
-
 
         public int Count
         {
