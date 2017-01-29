@@ -141,7 +141,7 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
             if (collection == null || collection.Count()==0) { Console.WriteLine("There are no planes"); }
 
             foreach (var currentGroup in collection) {
-                Console.WriteLine($"   Type is: {currentGroup.Key.ToString()}");
+                Console.WriteLine($"   Type is: {currentGroup.Key.ToString()}\n\n");
                 foreach (var plane in currentGroup) {
                     Console.WriteLine(plane.ToString());
                 }
@@ -154,6 +154,7 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
         /// <param name="maxRangeOfFlight">The max range</param>
         /// <param name="averageRangeOfFlight">The average range</param>
         public void ShowRangesOfFlight(double? minRangeOfFlight, double? maxRangeOfFlight, double? averageRangeOfFlight) {
+            Console.WriteLine("   The ranges of flight: \n");
             if (minRangeOfFlight == null || maxRangeOfFlight == null || averageRangeOfFlight == null) { Console.WriteLine("Incorrect ranges."); return; }
 
             Console.WriteLine($"The min range of flight: {minRangeOfFlight}\nThe max range of flight: {maxRangeOfFlight}\nThe average range of flight: {averageRangeOfFlight}\n");
