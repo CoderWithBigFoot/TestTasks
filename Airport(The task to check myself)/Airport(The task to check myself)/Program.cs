@@ -10,9 +10,6 @@ using Airport_The_task_to_check_myself_.Infractructure.Interaction;
 using Airport_The_task_to_check_myself_.Interfaces;
 namespace Airport_The_task_to_check_myself_
 {
-    public class Human:IHuman { }
-    public interface IHuman { }
-
    public class Program
     {
         public static void Main(string[] args)
@@ -83,12 +80,6 @@ namespace Airport_The_task_to_check_myself_
            consoleInteraction.ShowPlanes(airport.GetSeparatedPlanesByType());
             
             #endregion
-
-
-
-            
-            
-
             Console.ReadLine();
         }
     }
