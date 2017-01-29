@@ -15,7 +15,7 @@ namespace Airport_The_task_to_check_myself_
         public static void Main(string[] args)
         {
             #region
-            Airport<Airplane> airport = new Airport<Airplane>();
+            IAirport<IAirplane> airport = new Airport<IAirplane>();
             IInteraction consoleInteraction = new ConsoleInteraction();
             IAirplane plane;
             bool isInProcess = true;
