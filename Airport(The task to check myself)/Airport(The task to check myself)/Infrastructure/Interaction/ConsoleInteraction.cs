@@ -107,7 +107,7 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
             {
                 Console.WriteLine("Enter the searching letter (searching in number): ");
                 string input = Console.ReadLine();
-                if (input.Length > 1 || input == "")
+                if (input.Length > 1 || input == "" || !Char.IsLetter(input[0]))
                 {
                     Console.WriteLine("Incorrect symbol. Do you want to try again?(Y/N).");
 
