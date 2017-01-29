@@ -70,6 +70,7 @@ namespace Airport_The_task_to_check_myself_
            
 
            Console.ReadKey();
+            Console.WriteLine("   Gonna find planes by letter:");
             letterToCheck = consoleInteraction.GetLetterFromUser();
 
             if (letterToCheck != null) {
@@ -78,6 +79,7 @@ namespace Airport_The_task_to_check_myself_
 
 
            Console.ReadKey();
+            Console.WriteLine("\n   The goups of planes by their type:\n");
            consoleInteraction.ShowPlanes(airport.GetSeparatedPlanesByType());
             
             #endregion
