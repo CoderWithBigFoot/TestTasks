@@ -138,7 +138,7 @@ namespace Airport_The_task_to_check_myself_.Infractructure.Interaction
             }
         }
         public void ShowPlanes(IEnumerable<IGrouping<PlaneTypes, IAirplane>> collection) {
-            if (collection == null || collection.Count()==0) { Console.WriteLine("There are no planes");return; }
+            if (collection == null || collection.Count()==0) { Console.WriteLine("There are no planes");return;}
 
             foreach (var currentGroup in collection) {
                 Console.WriteLine($"   Type is: {currentGroup.Key.ToString()}\n\n");
