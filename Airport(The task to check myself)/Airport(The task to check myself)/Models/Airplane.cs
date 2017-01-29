@@ -57,7 +57,7 @@ namespace Airport_The_task_to_check_myself_.Models
         }
 
         [Required]
-        [Range(1,100000, ErrorMessage ="Count of range of flight must be from 1 to 100000")]
+        [Range(1,100000, ErrorMessage ="Range of flight must be from 1 to 100000")]
         public double RangeOfFlight { set; get; }
 
         public PlaneTypes PlaneType { protected set; get; }
